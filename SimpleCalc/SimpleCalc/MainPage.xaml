@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModel="clr-namespace:SimpleCalc.ViewModel;assembly=SimpleCalc.ViewModels"
+             x:Class="SimpleCalc.MainPage">
+
+    <ContentPage.BindingContext>
+        <viewModel:MainViewModel/>
+    </ContentPage.BindingContext>
+
+    <StackLayout>
+        <Label 
+            Padding="24"
+            VerticalOptions="EndAndExpand"
+            Text="{Binding DisplayValue}" 
+            HorizontalTextAlignment="End"
+            TextColor="White" 
+            FontSize="48"/>
+
+        <Grid 
+            RowDefinitions="*,*,*,*,*" 
+            ColumnDefinitions="*,*,*,*"
+            Margin="24"
+            VerticalOptions="End">
+
+            <Button Text="C" Grid.Row="0" Grid.Column="0" Command="{Binding ResetCommand}"/>
+            <Button Text="/" Grid.Row="0" Grid.Column="1" Command="{Binding OperatorCommand}" CommandParameter="/"/>
+            <Button Text="*" Grid.Row="0" Grid.Column="2" Command="{Binding OperatorCommand}" CommandParameter="*"/>
+            <Button Text="&lt;" Grid.Row="0" Grid.Column="3" Command="{Binding BackspaceCommand}"/>
+
+            <Button Text="7" Grid.Row="1" Grid.Column="0" Command="{Binding NumberCommand}" CommandParameter="7"/>
+            <Button Text="8" Grid.Row="1" Grid.Column="1" Command="{Binding NumberCommand}" CommandParameter="8"/>
+            <Button Text="9" Grid.Row="1" Grid.Column="2" Command="{Binding NumberCommand}" CommandParameter="9"/>
+            <Button Text="-" Grid.Row="1" Grid.Column="3" Command="{Binding OperatorCommand}" CommandParameter="-"/>
+
+            <Button Text="4" Grid.Row="2" Grid.Column="0" Command="{Binding NumberCommand}" CommandParameter="4"/>
+            <Button Text="5" Grid.Row="2" Grid.Column="1" Command="{Binding NumberCommand}" CommandParameter="5"/>
+            <Button Text="6" Grid.Row="2" Grid.Column="2" Command="{Binding NumberCommand}" CommandParameter="6"/>
+            <Button Text="+" Grid.Row="2" Grid.Column="3" Command="{Binding OperatorCommand}" CommandParameter="+"/>
+
+            <Button Text="1" Grid.Row="3" Grid.Column="0" Command="{Binding NumberCommand}" CommandParameter="1"/>
+            <Button Text="2" Grid.Row="3" Grid.Column="1" Command="{Binding NumberCommand}" CommandParameter="2"/>
+            <Button Text="3" Grid.Row="3" Grid.Column="2" Command="{Binding NumberCommand}" CommandParameter="3"/>
+            <Button Text="=" Grid.Row="3" Grid.Column="3" Grid.RowSpan="2" Command="{Binding EvaluateCommand}"/>
+
+            <Button Text="0" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Command="{Binding NumberCommand}" CommandParameter="0"/>
+            <Button Text="." Grid.Row="4" Grid.Column="2" Command="{Binding DecimalSeparatorCommand}"/>
+
+        </Grid>
+    </StackLayout>
+
+</ContentPage>
