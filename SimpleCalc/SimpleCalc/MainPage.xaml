@@ -14,7 +14,6 @@
             VerticalOptions="EndAndExpand"
             Text="{Binding DisplayValue}" 
             HorizontalTextAlignment="End"
-            TextColor="White" 
             FontSize="48"/>
 
         <Grid 
